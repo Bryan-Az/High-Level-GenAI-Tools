@@ -3,8 +3,16 @@ Current generative A.I. models and tools (i.e LLaMA-Factory, LM-Studio / Hugging
 
 ## Dify.AI's Workflow Capabilities
 
+Video Presentation Link: 
+
 ## LLaMA Factory & HuggingFace for Fine-tuning Specialized Models
+
+Video Presentation Link: 
 
 ## LM-Studio with Gemma AI Locally
 
+Video Presentation Link: 
+
 ## OLLaMA for Running LLMs Locally
+
+Video Presentation Link: 
