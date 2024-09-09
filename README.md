@@ -7,7 +7,7 @@ Current generative A.I. models and tools (i.e LLaMA-Factory, LM-Studio / Hugging
 
 ## LLaMA Factory & HuggingFace for Fine-tuning Specialized Models
 
-[Video Presentation Link](#)
+[Video Presentation Link](https://youtu.be/2TjtJlaugX4)
 
 ## LM-Studio with Gemma AI Locally
 
