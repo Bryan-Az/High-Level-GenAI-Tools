@@ -11,7 +11,7 @@ Current generative A.I. models and tools (i.e LLaMA-Factory, LM-Studio / Hugging
 
 ## LM-Studio with Gemma AI Locally
 
-[Video Presentation Link](#)
+[Video Presentation Link](https://youtu.be/Vja5rKub2fo)
 
 ## OLLaMA for Running LLMs Locally
 

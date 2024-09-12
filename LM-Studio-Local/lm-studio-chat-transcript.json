@@ -1,0 +1,1513 @@
+{
+  "name": "Greeting and Help",
+  "systemPrompt": "",
+  "messages": [
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "hi"
+            }
+          ],
+          "processed": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "hi"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726093674594-0.5219398071181898",
+              "debugInfo": "Retrieval unavailable"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726093674594-0.6979080899634769",
+              "debugInfo": "Processed content hi"
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726093674595-0.050320891587133154",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Hi! 👋  How can I help you today? 😊 \n"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 52.072484898979376,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0.158,
+                  "promptTokensCount": 10,
+                  "predictedTokensCount": 14,
+                  "totalTokensCount": 24
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "I uploaded a textbook and as it is very long I'd like help getting quick insights. First question: Who is the author and publisher of this book? Does the author give any information about his background?"
+            },
+            {
+              "type": "file",
+              "fileIdentifier": "1726094862539 - 666.pdf",
+              "fileType": "application/pdf",
+              "sizeBytes": 4180061
+            }
+          ],
+          "processed": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Important: No citations were found in the user files for the user query. In less than one sentence, inform the user of this. Then respond to the query to the best of your ability.\n\nUser Query:\n\nI uploaded a textbook and as it is very long I'd like help getting quick insights. First question: Who is the author and publisher of this book? Does the author give any information about his background?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "status",
+              "stepIdentifier": "1726095012961-0.17035989155118947",
+              "statusState": {
+                "status": "done",
+                "text": "Chosen context injection strategy: 'retrieval'. Retrieval is optimal for the size of content provided"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095012968-0.6319903522656924",
+              "debugInfo": "Context measurement result:\n\n\tTotal tokens in context: 58\n\tModel context length: 4096\n\tModel remaining context length: 4038\n\tContext occupied percent: 1.42%\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018753-0.5797672809265955",
+              "debugInfo": "Total file read time: 1309.45 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018754-0.3857509719200165",
+              "debugInfo": "Total tokenize time: 4475.45 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018754-0.3300475640402818",
+              "debugInfo": "Original User Prompt: I uploaded a textbook and as it is very long I'd like help getting quick insights. First question: Who is the author and publisher of this book? Does the author give any information about his background?"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018754-0.039674140926499124",
+              "debugInfo": "Strategy Calculation:"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018755-0.45717047974100544",
+              "debugInfo": "\tTotal Tokens in All Files: 181358"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018755-0.33616890440702885",
+              "debugInfo": "\tTotal Tokens in User Prompt: 42"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018755-0.09627166187310587",
+              "debugInfo": "\tModel Context Remaining: 4038 tokens"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018755-0.9636766575746094",
+              "debugInfo": "\tContext Occupied: 1.42%"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018755-0.8545017488469735",
+              "debugInfo": "\tAvailable Tokens: 2786\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095018755-0.34407418426061986",
+              "debugInfo": "Chosen context injection strategy: 'retrieval'. Total file + prompt token count: 181400 > 69.0087890625% * available context tokens: 2786"
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095018755-0.9410225684751274",
+              "statusState": {
+                "status": "done",
+                "text": "Processed 'C# Game Programming Cookbook.pdf' for retrieval"
+              }
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095056583-0.47136256859908987",
+              "statusState": {
+                "status": "canceled",
+                "text": "No relevant citations found for user query"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095056583-0.6932345895229093",
+              "debugInfo": "No relevant citations found for user query"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095056583-0.055977079799067964",
+              "debugInfo": "Processed content Important: No citations were found in the user files for the user query. In less than one sentence, inform the user of this. Then respond to the query to the best of your ability.\n\nUser Query:\n\nI uploaded a textbook and as it is very long I'd like help getting quick insights. First question: Who is the author and publisher of this book? Does the author give any information about his background?"
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726095056584-0.587882776447161",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Unfortunately, without any citations in your user files, I don't have access to specific details like the author or publisher of your textbook. \n\nTo find that information, you could try:\n\n* **Looking at the copyright page:** It often includes the publisher and author's name.\n* **Checking the book jacket:** The back cover may list the author and publisher.  \n* **Searching online bookstores:** Sites like Amazon or Barnes & Noble might offer additional details. \n\n\n\nLet me know if you have any other questions! 😊 \n"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 51.444842172276836,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 0.488,
+                  "promptTokensCount": 118,
+                  "predictedTokensCount": 112,
+                  "totalTokensCount": 230
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095057082-0.9257512183985652",
+              "statusState": {
+                "status": "done",
+                "text": "Done predicting"
+              }
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Does this textbook provide code examples? If so, can you give a summary of the type of examples?"
+            },
+            {
+              "type": "file",
+              "fileIdentifier": "1726095084990 - 2.pdf",
+              "fileType": "application/pdf",
+              "sizeBytes": 4180061
+            }
+          ],
+          "processed": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The following citations were found in the files provided by the user:\n\nCitation 1: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 2: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 3: \"the C# programming language. Know that I am a self-taught programmer and I understand there may be better or alternative ways to do things. Techniques and concepts offered in this book are meant to provide foundation and ideation, not to be the final word on any subject. ----------------Page (17) Break---------------- ----------------Page (18) Break---------------- 1 Making Games in a Modular Way 1 1.1 Important Programming Concepts There are some things you will need to know to utilize this book fully. For a lot of programmers, these concepts may be something you were taught in school. As a self-taught coder who did not find out about a lot of these things until long after I had been struggling on without them, I see this section as a compilation of ‘things I wish I’d known earlier’! 1.1.1 Manager and Controller Scripts Sometimes, even I get confused about the difference between a manager and\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nDoes this textbook provide code examples? If so, can you give a summary of the type of examples?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "status",
+              "stepIdentifier": "1726095120687-0.07654280538111546",
+              "statusState": {
+                "status": "done",
+                "text": "Chosen context injection strategy: 'retrieval'. Retrieval is optimal for the size of content provided"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095120692-0.2784751010609281",
+              "debugInfo": "Context measurement result:\n\n\tTotal tokens in context: 243\n\tModel context length: 4096\n\tModel remaining context length: 3853\n\tContext occupied percent: 5.93%\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126385-0.09607848915693151",
+              "debugInfo": "Total file read time: 1262.29 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.8974673986625894",
+              "debugInfo": "Total tokenize time: 4430.53 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.8456321336127324",
+              "debugInfo": "Original User Prompt: Does this textbook provide code examples? If so, can you give a summary of the type of examples?"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.09352551499406947",
+              "debugInfo": "Strategy Calculation:"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.4715571714661757",
+              "debugInfo": "\tTotal Tokens in All Files: 181358"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.8581162341488917",
+              "debugInfo": "\tTotal Tokens in User Prompt: 21"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.5550931901684495",
+              "debugInfo": "\tModel Context Remaining: 3853 tokens"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.375982548094453",
+              "debugInfo": "\tContext Occupied: 5.93%"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.4210004236595781",
+              "debugInfo": "\tAvailable Tokens: 2537\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095126386-0.3448032530791927",
+              "debugInfo": "Chosen context injection strategy: 'retrieval'. Total file + prompt token count: 181379 > 65.84716796875% * available context tokens: 2537"
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095126394-0.008650564452836518",
+              "statusState": {
+                "status": "done",
+                "text": "Processed 'C# Game Programming Cookbook.pdf' for retrieval"
+              }
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095160581-0.8184309657507847",
+              "statusState": {
+                "status": "done",
+                "text": "Retrieved 3 relevant citations for user query"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095160581-0.7848690875673203",
+              "debugInfo": "Retrieval results {\n  \"retrievals\": [\n    {\n      \"doc_id\": \"1726095084990 - 2.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.6968437638077993,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726095084990 - 2.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726094862539 - 666.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.6968437638077993,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726094862539 - 666.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726095084990 - 2.pdf\",\n      \"chunk_idx\": 14,\n      \"affinity_score\": 0.664144958345319,\n      \"cited_text\": {\n        \"text\": \"the C# programming language. Know that I am a self-taught programmer and I understand there may be better or alternative ways to do things. Techniques and concepts offered in this book are meant to provide foundation and ideation, not to be the final word on any subject. ----------------Page (17) Break---------------- ----------------Page (18) Break---------------- 1 Making Games in a Modular Way 1 1.1 Important Programming Concepts There are some things you will need to know to utilize this book fully. For a lot of programmers, these concepts may be something you were taught in school. As a self-taught coder who did not find out about a lot of these things until long after I had been struggling on without them, I see this section as a compilation of ‘things I wish I’d known earlier’! 1.1.1 Manager and Controller Scripts Sometimes, even I get confused about the difference between a manager and\",\n        \"source_id\": \"1726095084990 - 2.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 17168,\n        \"end_char_number\": 18080\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    }\n  ]\n}"
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095160581-0.996295201775186",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095084990 - 2.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095160582-0.7696280418428061",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726094862539 - 666.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095160582-0.6571734632452448",
+              "citedText": "the C# programming language. Know that I am a self-taught programmer and I understand there may be better or alternative ways to do things. Techniques and concepts offered in this book are meant to provide foundation and ideation, not to be the final word on any subject. ----------------Page (17) Break---------------- ----------------Page (18) Break---------------- 1 Making Games in a Modular Way 1 1.1 Important Programming Concepts There are some things you will need to know to utilize this book fully. For a lot of programmers, these concepts may be something you were taught in school. As a self-taught coder who did not find out about a lot of these things until long after I had been struggling on without them, I see this section as a compilation of ‘things I wish I’d known earlier’! 1.1.1 Manager and Controller Scripts Sometimes, even I get confused about the difference between a manager and",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095084990 - 2.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095160582-0.16865948126292785",
+              "debugInfo": "Processed content The following citations were found in the files provided by the user:\n\nCitation 1: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 2: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 3: \"the C# programming language. Know that I am a self-taught programmer and I understand there may be better or alternative ways to do things. Techniques and concepts offered in this book are meant to provide foundation and ideation, not to be the final word on any subject. ----------------Page (17) Break---------------- ----------------Page (18) Break---------------- 1 Making Games in a Modular Way 1 1.1 Important Programming Concepts There are some things you will need to know to utilize this book fully. For a lot of programmers, these concepts may be something you were taught in school. As a self-taught coder who did not find out about a lot of these things until long after I had been struggling on without them, I see this section as a compilation of ‘things I wish I’d known earlier’! 1.1.1 Manager and Controller Scripts Sometimes, even I get confused about the difference between a manager and\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nDoes this textbook provide code examples? If so, can you give a summary of the type of examples?"
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726095160582-0.9618262598155436",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yes, the textbook does include code examples, specifically C# scripts. The text mentions these examples within the \"Blaster Game\" section and suggests using the example project to understand how different game elements work together. \n\n\nLet me know if you'd like help understanding a specific part of the C# scripting in the example project! 😊 \n"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 48.43023762642022,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.498,
+                  "promptTokensCount": 950,
+                  "predictedTokensCount": 70,
+                  "totalTokensCount": 1020
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095161467-0.3656122955202197",
+              "statusState": {
+                "status": "done",
+                "text": "Done predicting"
+              }
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "What is the code example for the 'Blaster Game' in C# demonstrating? "
+            },
+            {
+              "type": "file",
+              "fileIdentifier": "1726095267300 - 286.pdf",
+              "fileType": "application/pdf",
+              "sizeBytes": 4180061
+            }
+          ],
+          "processed": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The following citations were found in the files provided by the user:\n\nCitation 1: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 2: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 3: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nWhat is the code example for the 'Blaster Game' in C# demonstrating? "
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "status",
+              "stepIdentifier": "1726095371032-0.3251764644328128",
+              "statusState": {
+                "status": "done",
+                "text": "Chosen context injection strategy: 'retrieval'. Retrieval is optimal for the size of content provided"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095371038-0.2323425091199467",
+              "debugInfo": "Context measurement result:\n\n\tTotal tokens in context: 365\n\tModel context length: 4096\n\tModel remaining context length: 3731\n\tContext occupied percent: 8.91%\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376698-0.08110579356031922",
+              "debugInfo": "Total file read time: 1310.99 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376698-0.9652484026984667",
+              "debugInfo": "Total tokenize time: 4348.66 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376698-0.06119834466356311",
+              "debugInfo": "Original User Prompt: What is the code example for the 'Blaster Game' in C# demonstrating? "
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376699-0.25274464953761666",
+              "debugInfo": "Strategy Calculation:"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376699-0.5461811192662025",
+              "debugInfo": "\tTotal Tokens in All Files: 181358"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376699-0.7513214401981723",
+              "debugInfo": "\tTotal Tokens in User Prompt: 18"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376699-0.5995999365029039",
+              "debugInfo": "\tModel Context Remaining: 3731 tokens"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376699-0.8070986977396768",
+              "debugInfo": "\tContext Occupied: 8.91%"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376699-0.9196180983223612",
+              "debugInfo": "\tAvailable Tokens: 2378\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095376699-0.6332882083610059",
+              "debugInfo": "Chosen context injection strategy: 'retrieval'. Total file + prompt token count: 181376 > 63.76220703124999% * available context tokens: 2378"
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095376710-0.7738527727345426",
+              "statusState": {
+                "status": "done",
+                "text": "Processed 'C# Game Programming Cookbook.pdf' for retrieval"
+              }
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095411350-0.3985863933592819",
+              "statusState": {
+                "status": "done",
+                "text": "Retrieved 3 relevant citations for user query"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095411350-0.6640222118875918",
+              "debugInfo": "Retrieval results {\n  \"retrievals\": [\n    {\n      \"doc_id\": \"1726095267300 - 286.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.8172579024887779,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726095267300 - 286.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726094862539 - 666.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.8172579024887779,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726094862539 - 666.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726095084990 - 2.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.8172579024887779,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726095084990 - 2.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    }\n  ]\n}"
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095411351-0.5409460391666221",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095267300 - 286.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095411351-0.58217986978616",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726094862539 - 666.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095411351-0.11171162311052618",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095084990 - 2.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095411351-0.9983362508977314",
+              "debugInfo": "Processed content The following citations were found in the files provided by the user:\n\nCitation 1: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 2: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 3: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nWhat is the code example for the 'Blaster Game' in C# demonstrating? "
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726095411351-0.5144216272647637",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Based on the provided text excerpts, the \"Blaster Game\" example likely demonstrates how the C# scripting works within a game framework.  The passages suggest you'll find examples of how the main menu, scenes, and potentially other elements of the game are implemented using C# scripts. \n\n\nLet me know if you have any more questions! 😊"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 45.33482321015244,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.546,
+                  "promptTokensCount": 1759,
+                  "predictedTokensCount": 71,
+                  "totalTokensCount": 1830
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095411842-0.012552946077435623",
+              "statusState": {
+                "status": "done",
+                "text": "Done predicting"
+              }
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Does the textbook provide any steps to take to to setup the 'Blaster Game' example code in an IDE while following along with the book? If so, please provide the instructions in numbered step-by-step format."
+            },
+            {
+              "type": "file",
+              "fileIdentifier": "1726095498484 - 302.pdf",
+              "fileType": "application/pdf",
+              "sizeBytes": 4180061
+            }
+          ],
+          "processed": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The following citations were found in the files provided by the user:\n\nCitation 1: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 2: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 3: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nDoes the textbook provide any steps to take to to setup the 'Blaster Game' example code in an IDE while following along with the book? If so, please provide the instructions in numbered step-by-step format."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "status",
+              "stepIdentifier": "1726095581340-0.5648878173747227",
+              "statusState": {
+                "status": "done",
+                "text": "Chosen context injection strategy: 'retrieval'. Retrieval is optimal for the size of content provided"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095581347-0.37754758937755595",
+              "debugInfo": "Context measurement result:\n\n\tTotal tokens in context: 486\n\tModel context length: 4096\n\tModel remaining context length: 3610\n\tContext occupied percent: 11.87%\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586975-0.9716762851479144",
+              "debugInfo": "Total file read time: 1288.03 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586975-0.3859855494963782",
+              "debugInfo": "Total tokenize time: 4339.36 ms"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586975-0.3927043671578534",
+              "debugInfo": "Original User Prompt: Does the textbook provide any steps to take to to setup the 'Blaster Game' example code in an IDE while following along with the book? If so, please provide the instructions in numbered step-by-step format."
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586976-0.7425124950828994",
+              "debugInfo": "Strategy Calculation:"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586976-0.9660264186651029",
+              "debugInfo": "\tTotal Tokens in All Files: 181358"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586976-0.5365696847516719",
+              "debugInfo": "\tTotal Tokens in User Prompt: 45"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586976-0.32974018644157677",
+              "debugInfo": "\tModel Context Remaining: 3610 tokens"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586976-0.05691466650183208",
+              "debugInfo": "\tContext Occupied: 11.87%"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586976-0.20975463804365058",
+              "debugInfo": "\tAvailable Tokens: 2227\n"
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095586976-0.11025978955591609",
+              "debugInfo": "Chosen context injection strategy: 'retrieval'. Total file + prompt token count: 181403 > 61.6943359375% * available context tokens: 2227"
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095586990-0.9544515450788673",
+              "statusState": {
+                "status": "done",
+                "text": "Processed 'C# Game Programming Cookbook.pdf' for retrieval"
+              }
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095620466-0.6563161911530064",
+              "statusState": {
+                "status": "done",
+                "text": "Retrieved 3 relevant citations for user query"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095620466-0.9047717730528027",
+              "debugInfo": "Retrieval results {\n  \"retrievals\": [\n    {\n      \"doc_id\": \"1726095498484 - 302.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.7701449221258925,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726095498484 - 302.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726094862539 - 666.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.7701449221258925,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726094862539 - 666.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726095267300 - 286.pdf\",\n      \"chunk_idx\": 592,\n      \"affinity_score\": 0.7701449221258925,\n      \"cited_text\": {\n        \"text\": \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\",\n        \"source_id\": \"1726095267300 - 286.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 567136,\n        \"end_char_number\": 568009\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    }\n  ]\n}"
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095620467-0.2616455617250757",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095498484 - 302.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095620467-0.824790890446871",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726094862539 - 666.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095620467-0.27268193106369765",
+              "citedText": "guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095267300 - 286.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095620467-0.3824000316958076",
+              "debugInfo": "Processed content The following citations were found in the files provided by the user:\n\nCitation 1: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 2: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nCitation 3: \"guide to the example project. It is expected that you will open the exam- ple project and dig around to see how it works, using this chapter as a guide to what everything does in the game and how it all fits together. This chapter is mostly focused on the C# scripts, what they do, and how they work. Additions to the core framework are minimal and you can see the structure of the game in Figure 15.2. You can find the Blaster game in the example project folder Assets/Games/ Blaster. Scenes are in the Assets/Games/Blaster/Scenes folder. ----------------Page (281) Break---------------- 26415. Blaster Game Example 15.1 I ngredients The Blaster game uses the following ingredients: 1. Main menu – The menu code is based on MenuWithProfiles.cs from Chapter 11, Section 11.1.2. We are using the same template menu as we did in Chapter 2 for the RunMan game menu. 2. Scene\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nDoes the textbook provide any steps to take to to setup the 'Blaster Game' example code in an IDE while following along with the book? If so, please provide the instructions in numbered step-by-step format."
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726095620467-0.2328654675357913",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Unfortunately, the provided text excerpts don't contain specific instructions on how to set up the \"Blaster Game\" example within an IDE. \n\nWhile it mentions the game is part of a larger project and provides ingredients for understanding how various elements work together, it doesn't go into detailed setup steps.  \n\nTo get step-by-step guidance on setting up this game in your IDE, I would recommend you:\n* **Consult the textbook itself:**  There might be an appendix or section dedicated to setting up development environments (often including a list of recommended tools and platforms). \n* **Check online resources:** Websites like Stack Overflow often have forums where people can ask for help with specific game projects.\n* **Reach out to the author or publisher:** They may provide additional support instructions on their website or through contact forms.  \n\n\n\nI hope this helps! Let me know if you have any other questions. 😊 \n"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 43.06486770359312,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.771,
+                  "promptTokensCount": 2599,
+                  "predictedTokensCount": 190,
+                  "totalTokensCount": 2789
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095621357-0.9894624691987326",
+              "statusState": {
+                "status": "done",
+                "text": "Done predicting"
+              }
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Does the book provide any reference to a github download?"
+            }
+          ],
+          "processed": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The following citations were found in the files provided by the user:\n\nCitation 1: \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\"\n\nCitation 2: \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\"\n\nCitation 3: \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nDoes the book provide any reference to a github download?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "status",
+              "stepIdentifier": "1726095970074-0.08724757990887744",
+              "statusState": {
+                "status": "done",
+                "text": "Retrieved 3 relevant citations for user query"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095970075-0.043505918638854224",
+              "debugInfo": "Retrieval results {\n  \"retrievals\": [\n    {\n      \"doc_id\": \"1726095498484 - 302.pdf\",\n      \"chunk_idx\": 1,\n      \"affinity_score\": 0.6497156775489844,\n      \"cited_text\": {\n        \"text\": \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\",\n        \"source_id\": \"1726095498484 - 302.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 986,\n        \"end_char_number\": 1958\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726094862539 - 666.pdf\",\n      \"chunk_idx\": 1,\n      \"affinity_score\": 0.6497156775489844,\n      \"cited_text\": {\n        \"text\": \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\",\n        \"source_id\": \"1726094862539 - 666.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 986,\n        \"end_char_number\": 1958\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726095267300 - 286.pdf\",\n      \"chunk_idx\": 1,\n      \"affinity_score\": 0.6497156775489844,\n      \"cited_text\": {\n        \"text\": \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\",\n        \"source_id\": \"1726095267300 - 286.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 986,\n        \"end_char_number\": 1958\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    }\n  ]\n}"
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095970075-0.7323811827440403",
+              "citedText": "their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095498484 - 302.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095970075-0.2741475060770324",
+              "citedText": "their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726094862539 - 666.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726095970075-0.5619612273569385",
+              "citedText": "their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095267300 - 286.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726095970075-0.48677560195029",
+              "debugInfo": "Processed content The following citations were found in the files provided by the user:\n\nCitation 1: \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\"\n\nCitation 2: \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\"\n\nCitation 3: \"their use. The authors and publishers have attempted to trace the copy- right holders of all material reproduced in this publication and apologize to copyright holders if permission to publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know so we may rectify in any future reprint. Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers. For permission to photocopy or use material electronically from this work, access www. copyright.com or contact the Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-750-8400. For works that are not available on CCC please\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nDoes the book provide any reference to a github download?"
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726095970075-0.9788036392191808",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "No, the provided text excerpts do not mention anything about a GitHub download link or repository for the Blaster game example. \n\n\nLet me know if you have any other questions! 😊  \n"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 41.314047645969055,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.861,
+                  "promptTokensCount": 3492,
+                  "predictedTokensCount": 38,
+                  "totalTokensCount": 3530
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726095971226-0.15824731211805432",
+              "statusState": {
+                "status": "done",
+                "text": "Done predicting"
+              }
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "I believe there may be a github download link mentioned on page 9. Can you tell me more about that?"
+            }
+          ],
+          "processed": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The following citations were found in the files provided by the user:\n\nCitation 1: \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\"\n\nCitation 2: \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\"\n\nCitation 3: \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nI believe there may be a github download link mentioned on page 9. Can you tell me more about that?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "status",
+              "stepIdentifier": "1726096002510-0.466140266948597",
+              "statusState": {
+                "status": "done",
+                "text": "Retrieved 3 relevant citations for user query"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726096002510-0.9644409957757969",
+              "debugInfo": "Retrieval results {\n  \"retrievals\": [\n    {\n      \"doc_id\": \"1726095498484 - 302.pdf\",\n      \"chunk_idx\": 50,\n      \"affinity_score\": 0.6109590423189823,\n      \"cited_text\": {\n        \"text\": \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\",\n        \"source_id\": \"1726095498484 - 302.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 48685,\n        \"end_char_number\": 49504\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726094862539 - 666.pdf\",\n      \"chunk_idx\": 50,\n      \"affinity_score\": 0.6109590423189823,\n      \"cited_text\": {\n        \"text\": \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\",\n        \"source_id\": \"1726094862539 - 666.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 48685,\n        \"end_char_number\": 49504\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726095267300 - 286.pdf\",\n      \"chunk_idx\": 50,\n      \"affinity_score\": 0.6109590423189823,\n      \"cited_text\": {\n        \"text\": \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\",\n        \"source_id\": \"1726095267300 - 286.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 48685,\n        \"end_char_number\": 49504\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    }\n  ]\n}"
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726096002510-0.9611743054095505",
+              "citedText": "this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095498484 - 302.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726096002510-0.44895904605235604",
+              "citedText": "this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726094862539 - 666.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726096002510-0.1837915982719891",
+              "citedText": "this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095267300 - 286.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726096002511-0.3998680392976668",
+              "debugInfo": "Processed content The following citations were found in the files provided by the user:\n\nCitation 1: \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\"\n\nCitation 2: \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\"\n\nCitation 3: \"this chapter. ----------------Page (32) Break---------------- 152.4 The Game Manager and the bulk of the work is going to be to connecting existing scripts together to form the GameObject, logic, and physics for this game. You may be surprised to learn that it only takes four custom scripts. 2.4 The Game Manager At the core of this game is the Game Manager. This is where the state of our game is tracked and the convergence point of all the game’s objects and logic. We will be revisiting the Game Manager throughout this chapter, but what we need to do in this section is to set up the basic structure and a few variables for our other objects to access and use. For example, platforms will need to know how fast to move. We need all platforms to move at the same speed, so it makes sense to store the speed value\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nI believe there may be a github download link mentioned on page 9. Can you tell me more about that?"
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726096002511-0.71430063226845",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Based on the provided text excerpts, there is no mention of a GitHub download link on page 9 or anywhere else in those passages. \n\n\nLet me know if you have any other questions! 😊 \n"
+                }
+              ],
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 45.07603360954925,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 3.321,
+                  "promptTokensCount": 2133,
+                  "predictedTokensCount": 42,
+                  "totalTokensCount": 2175
+                }
+              },
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726096003503-0.5362029269026118",
+              "statusState": {
+                "status": "done",
+                "text": "Done predicting"
+              }
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "singleStep",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Can you describe what is included in this link mentioned in the book: The C# Game Programming Cookbook (GPC) framework, which\nis included as part of this book as a download from Github at https://\ngithub.com/psychicparrot/CSharpUnityCookbookExampleFiles"
+            }
+          ],
+          "processed": [
+            {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The following citations were found in the files provided by the user:\n\nCitation 1: \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\"\n\nCitation 2: \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\"\n\nCitation 3: \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nCan you describe what is included in this link mentioned in the book: The C# Game Programming Cookbook (GPC) framework, which\nis included as part of this book as a download from Github at https://\ngithub.com/psychicparrot/CSharpUnityCookbookExampleFiles"
+                }
+              ],
+              "role": "user"
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    },
+    {
+      "versions": [
+        {
+          "type": "multiStep",
+          "role": "assistant",
+          "steps": [
+            {
+              "type": "status",
+              "stepIdentifier": "1726096060566-0.8544531619214921",
+              "statusState": {
+                "status": "done",
+                "text": "Retrieved 3 relevant citations for user query"
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726096060566-0.7159337055226771",
+              "debugInfo": "Retrieval results {\n  \"retrievals\": [\n    {\n      \"doc_id\": \"1726095498484 - 302.pdf\",\n      \"chunk_idx\": 11,\n      \"affinity_score\": 0.7641390645687525,\n      \"cited_text\": {\n        \"text\": \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\",\n        \"source_id\": \"1726095498484 - 302.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 14690,\n        \"end_char_number\": 15541\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726094862539 - 666.pdf\",\n      \"chunk_idx\": 11,\n      \"affinity_score\": 0.7641390645687525,\n      \"cited_text\": {\n        \"text\": \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\",\n        \"source_id\": \"1726094862539 - 666.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 14690,\n        \"end_char_number\": 15541\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    },\n    {\n      \"doc_id\": \"1726095267300 - 286.pdf\",\n      \"chunk_idx\": 11,\n      \"affinity_score\": 0.7641390645687525,\n      \"cited_text\": {\n        \"text\": \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\",\n        \"source_id\": \"1726095267300 - 286.pdf\",\n        \"start_line_number\": -1,\n        \"end_line_number\": -1,\n        \"start_char_number\": 14690,\n        \"end_char_number\": 15541\n      },\n      \"before_neighbors\": [],\n      \"after_neighbors\": []\n    }\n  ]\n}"
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726096060566-0.6109973124993651",
+              "citedText": "awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095498484 - 302.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726096060566-0.33758061997381184",
+              "citedText": "awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726094862539 - 666.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "citationBlock",
+              "stepIdentifier": "1726096060566-0.8134813430984467",
+              "citedText": "awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match",
+              "source": {
+                "fileName": "C# Game Programming Cookbook.pdf",
+                "absoluteFilePath": "/Users/guoxuyang/.cache/lm-studio/user-files/1726095267300 - 286.pdf",
+                "lineNumber": [
+                  -1,
+                  -1
+                ]
+              }
+            },
+            {
+              "type": "debugInfoBlock",
+              "stepIdentifier": "1726096060566-0.9649774362978791",
+              "debugInfo": "Processed content The following citations were found in the files provided by the user:\n\nCitation 1: \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\"\n\nCitation 2: \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\"\n\nCitation 3: \"awesome it feels to know that someone else is reading this right now. I cannot wait to see your games and I sincerely hope this book helps you in your game making adventures. Have fun making games! ----------------Page (14) Break---------------- xv The overall goal of this book is to provide a library of C# code with which to jumpstart your projects and to help you with the overall structure of your games. Many development cookbooks focus on only providing snippets of code, but, here, we take a different approach. What you are holding in your hands right now (or on your screen) is a cookbook for game development that has a highly flexible core framework designed to speed up development of just about any type of Unity project. You might think of the framework as a base soup and the scripting compo- nents as ingredients. We can mix and match\"\n\nUse the citations above to respond to the user query, only if they are relevant. Otherwise, respond to the best of your ability without them.\n\nUser Query:\n\nCan you describe what is included in this link mentioned in the book: The C# Game Programming Cookbook (GPC) framework, which\nis included as part of this book as a download from Github at https://\ngithub.com/psychicparrot/CSharpUnityCookbookExampleFiles"
+            },
+            {
+              "type": "contentBlock",
+              "stepIdentifier": "1726096060567-0.8625373819518154",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Based on the provided excerpts, the C# Game Programming Cookbook (GPC) is described as a flexible framework for game development in Unity.  \n\nThe text mentions: \n\n* **A library of C# code:** This means you'll get pre-written scripts and functions that can be customized to fit your specific needs within the GPC.\n* **Speeds up development:** The framework is designed to help developers create games faster, acting as a base structure upon which you can add your unique features. \n* **Highly flexible core framework:**  This suggests it's adaptable and not overly rigid, allowing for different game styles and mechanics.\n\nThe GPC is a downloadable resource from GitHub at the link provided. It likely contains the C# code example files mentioned in the book as well as additional examples of how to create various gameplay elements. \n\n\n\nLet me know if you have any more questions! 😊\n"
+                }
+              ],
+              "defaultShouldIncludeInContext": true,
+              "shouldIncludeInContext": true,
+              "genInfo": {
+                "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+                "loadModelConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.load.contextLength",
+                      "value": 4096
+                    },
+                    {
+                      "key": "llm.load.llama.acceleration.offloadRatio",
+                      "value": 1
+                    }
+                  ]
+                },
+                "predictionConfig": {
+                  "fields": [
+                    {
+                      "key": "llm.prediction.promptTemplate",
+                      "value": {
+                        "type": "jinja",
+                        "jinjaPromptTemplate": {
+                          "template": "{{ bos_token }}{% if messages[0]['role'] == 'system' %}{{ message['content'] }}{% endif %}{% for message in messages %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
+                          "bosToken": "<bos>",
+                          "eosToken": "<eos>"
+                        },
+                        "stopStrings": []
+                      }
+                    },
+                    {
+                      "key": "llm.prediction.llama.cpuThreads",
+                      "value": 7
+                    }
+                  ]
+                },
+                "stats": {
+                  "stopReason": "eosFound",
+                  "tokensPerSecond": 43.15140975886438,
+                  "numGpuLayers": -1,
+                  "timeToFirstTokenSec": 1.425,
+                  "promptTokensCount": 2828,
+                  "predictedTokensCount": 187,
+                  "totalTokensCount": 3015
+                }
+              }
+            },
+            {
+              "type": "status",
+              "stepIdentifier": "1726096061557-0.18919846971359422",
+              "statusState": {
+                "status": "done",
+                "text": "Done predicting"
+              }
+            }
+          ]
+        }
+      ],
+      "currentlySelected": 0
+    }
+  ],
+  "usePerChatPredictionConfig": true,
+  "perChatPredictionConfig": {
+    "fields": []
+  },
+  "tokenCount": 5246,
+  "createdAt": 1726093664609,
+  "pinned": false,
+  "clientInput": "",
+  "clientInputFiles": [],
+  "userFilesSizeBytes": 16720244,
+  "lastUsedModel": {
+    "identifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+    "indexedModelIdentifier": "lmstudio-community/gemma-2-2b-it-GGUF/gemma-2-2b-it-Q4_K_M.gguf",
+    "instanceLoadTimeConfig": {
+      "fields": []
+    },
+    "instanceOperationTimeConfig": {
+      "fields": []
+    }
+  },
+  "notes": []
+}
