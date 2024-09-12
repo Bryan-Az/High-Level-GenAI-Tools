@@ -13,6 +13,6 @@ Current generative A.I. models and tools (i.e LLaMA-Factory, LM-Studio / Hugging
 
 [Video Presentation Link](https://youtu.be/Vja5rKub2fo)
 
-## OLLaMA for Running LLMs Locally
+## OLLaMA for Running LLMs Locally and Remotely
 
 [Video Presentation Link](#)
